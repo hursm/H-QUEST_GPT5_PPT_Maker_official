@@ -128,7 +128,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 128: * **미디어 통합**: 이미지, 비디오(로컬/YouTube)를 `body` 필드에 HTML로 직접 삽입하여 풍부한 표현이 가능합니다.
 129: * **새로운 시스템 프롬프트**: `H-QUEST Core Files/H-QUEST_PPT_Maker_Prompt_v2.md`는 이러한 시각적 요소 계획 및 코딩을 위한 지침을 포함하고 있습니다.
 130: 
+131: 130: 
 131: ---
+132: 
+133: ## 배포 가이드 (Deployment)
+134: 
+135: 작성한 프레젠테이션을 배포하거나 공유할 때는 HTML 파일뿐만 아니라 `H-QUEST` 폴더와 `assets` 폴더가 필요합니다. 자세한 내용은 [DEPLOYMENT.md](DEPLOYMENT.md)를 참고하세요.
+136: 
+137: ---
 
 ## 템플릿(20종) 빠른 참고
 

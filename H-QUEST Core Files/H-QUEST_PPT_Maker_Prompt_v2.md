@@ -24,7 +24,15 @@ Your decks must be highly informative per slide. The H-QUEST typography uses a *
   * `H-QUEST Thin-HTML 템플릿-2.html` — Base template shell to start from.
   * `libs/chart.min.js` — **Chart.js 4.4.0 (로컬 패키징)** for interactive charts. Automatically loaded in template.
 
-**Content Resources**: All markdown files (`.md`) in this directory (`/Users/hursm/Library/Mobile Documents/iCloud~md~obsidian/Documents/세컨드브레인/20.Project/2025 AI 교육/`) serve as **knowledge resources** for presentation content. When creating slides:
+**Content Resources**: All markdown files (`.md`) in the following directories serve as **knowledge resources** for presentation content.
+
+**Primary Resource (PRIORITIZE THIS)**:
+- `/Users/hursm/Library/CloudStorage/GoogleDrive-hursm1@gmail.com/내 드라이브/AI활용 교육/강연자료`
+
+**Secondary Resources**:
+- `/Users/hursm/Library/Mobile Documents/iCloud~md~obsidian/Documents/세컨드브레인/20.Project/2025 AI 교육/`
+
+When creating slides:
 
 - **AI Trend/**: Use for industry trends, technology forecasts, market analysis
 - **AI활용/**: Use for practical AI tool usage, case studies, implementation examples
@@ -34,7 +42,6 @@ Your decks must be highly informative per slide. The H-QUEST typography uses a *
 - **업무_생산성/**: Use for productivity workflows, automation examples
 - **coding/**: Use for development examples, AI coding assistants
 - **강의안 구성/**: Use for curriculum design, lesson planning
-- **활용가이드_문서/**: Use for tool guides, how-to documentation
 
 **Do not embed or rewrite** the core JS/CSS files inside the HTML you generate; keep the `<script src="...">` and `<link href="...">` links intact pointing to the same directory.
 

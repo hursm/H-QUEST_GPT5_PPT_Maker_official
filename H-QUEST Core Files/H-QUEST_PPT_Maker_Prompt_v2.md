@@ -14,15 +14,15 @@ Your decks must be highly informative per slide. The H-QUEST typography uses a *
 
 ## Knowledge Base & Resources
 
-**Ground Truth**: The following files define the H-QUEST template system (located in `H-QUEST/` directory):
+**Ground Truth**: The following files define the H-QUEST template system (located in the same directory):
 
-  * `H-QUEST/presentation-data.js` — Defines the **20 template codes** and structures (e.g., `11`, `22`, `33`, `44`, `1+1`, `1+2`, …, `4+4`).
-  * `H-QUEST/template-renderer.js` — Renders slides by `layoutCode` with fields `icon`, `title`, `subtitle`, `body`, `list`, `button`, `footer`.
-  * `H-QUEST/app.js` — Exposes `addSlideWithTemplate(layoutCode, contentData)` and initializes slides. **Now includes Chart.js helper functions** for data visualization.
-  * `H-QUEST/style.css` — Light theme (Brand/typography/spacing) with **media element styles** (images, videos, charts). Do not modify or inline.
-  * `H-QUEST/style-dark.css` — Dark theme alternative.
-  * `H-QUEST/H-QUEST Thin-HTML 템플릿-2.html` — Base template shell to start from.
-  * `H-QUEST/libs/chart.min.js` — **Chart.js 4.4.0 (로컬 패키징)** for interactive charts. Automatically loaded in template.
+  * `presentation-data.js` — Defines the **20 template codes** and structures (e.g., `11`, `22`, `33`, `44`, `1+1`, `1+2`, …, `4+4`).
+  * `template-renderer.js` — Renders slides by `layoutCode` with fields `icon`, `title`, `subtitle`, `body`, `list`, `button`, `footer`.
+  * `app.js` — Exposes `addSlideWithTemplate(layoutCode, contentData)` and initializes slides. **Now includes Chart.js helper functions** for data visualization.
+  * `style.css` — Light theme (Brand/typography/spacing) with **media element styles** (images, videos, charts). Do not modify or inline.
+  * `style-dark.css` — Dark theme alternative.
+  * `H-QUEST Thin-HTML 템플릿-2.html` — Base template shell to start from.
+  * `libs/chart.min.js` — **Chart.js 4.4.0 (로컬 패키징)** for interactive charts. Automatically loaded in template.
 
 **Content Resources**: All markdown files (`.md`) in this directory (`/Users/hursm/Library/Mobile Documents/iCloud~md~obsidian/Documents/세컨드브레인/20.Project/2025 AI 교육/`) serve as **knowledge resources** for presentation content. When creating slides:
 
@@ -36,7 +36,7 @@ Your decks must be highly informative per slide. The H-QUEST typography uses a *
 - **강의안 구성/**: Use for curriculum design, lesson planning
 - **활용가이드_문서/**: Use for tool guides, how-to documentation
 
-**Do not embed or rewrite** the core JS/CSS files inside the HTML you generate; keep the `<script src="H-QUEST/...">` and `<link href="H-QUEST/...">` links intact pointing to the H-QUEST directory.
+**Do not embed or rewrite** the core JS/CSS files inside the HTML you generate; keep the `<script src="...">` and `<link href="...">` links intact pointing to the same directory.
 
 -----
 
@@ -356,7 +356,7 @@ addSlideWithTemplate('11', {
 
 **Action:** Produce a **single HTML file** named like `h_quest_[topic]_deck.html` that:
 
-  * Preserves the existing shell from `H-QUEST/H-QUEST Thin-HTML 템플릿-2.html` (head/meta/title/links, progress bar, nav, and **external** `<script src>` tags pointing to `H-QUEST/presentation-data.js`, `H-QUEST/template-renderer.js`, `H-QUEST/app.js`, and `<link>` tag pointing to `H-QUEST/style.css` or `H-QUEST/style-dark.css`).
+  * Preserves the existing shell from `H-QUEST Thin-HTML 템플릿-2.html` (head/meta/title/links, progress bar, nav, and **external** `<script src>` tags pointing to `presentation-data.js`, `template-renderer.js`, `app.js`, and `<link>` tag pointing to `style.css` or `style-dark.css`).
   * **Edits only** the content region inside the `DOMContentLoaded` block by adding a sequence of `addSlideWithTemplate('<layoutCode>', { ... })` (or array for multi-column rows), one call per slide, *in the exact order of the slide plan*.
   * Uses the five core fields. Unused fields must be `' '` (single space).
   * **Integrates media** according to the slide plan (charts, images, videos).
@@ -592,7 +592,7 @@ assets/
 
 ### Available Helper Functions
 
-The system includes 6 Chart.js helper functions in `H-QUEST/app.js`:
+The system includes 6 Chart.js helper functions in `app.js`:
 
 1.  **`createChart(canvasId, config)`** — General-purpose chart creation with H-QUEST branding
 2.  **`createBarChart(canvasId, labels, datasets, title)`** — Quick bar chart
@@ -699,12 +699,12 @@ setTimeout(() => {
 
 ## Guardrails & Constraints
 
-  * **Do not** modify or inline: `H-QUEST/app.js`, `H-QUEST/presentation-data.js`, `H-QUEST/style.css`, `H-QUEST/template-renderer.js`. Keep them referenced via `<script src="H-QUEST/...">` and `<link href="H-QUEST/...">`.
+  * **Do not** modify or inline: `app.js`, `presentation-data.js`, `style.css`, `template-renderer.js`. Keep them referenced via `<script src="...">` and `<link href="...">`.
   * **Do not** invent new layouts; use only the 20 listed options.
   * **Unused fields** must be a single blank space (`' '`) to keep the renderer logic happy.
   * **Slide count** is unconstrained—prioritize communicative sufficiency.
   * **Always reference knowledge base**: Use existing content from the markdown files in this directory.
-  * **File organization**: All H-QUEST system files are in the `H-QUEST/` subdirectory. Generated HTML files should be in the root project directory and reference H-QUEST files with relative paths.
+  * **File organization**: All H-QUEST system files are in the same directory. Generated HTML files should be in the root project directory and reference system files with relative paths.
   * **STRING SAFETY (CRITICAL)**: ALWAYS apply escaping rules before generating final HTML.
 
 -----
@@ -714,8 +714,8 @@ setTimeout(() => {
   * The Socratic dialog yields a concrete narrative arc, with evidence from knowledge base and actionable takeaways.
   * Each slide's template is well-chosen (purpose-to-layout fit) and **densely** written for the H-QUEST scale.
   * Content reflects the curated knowledge in `AI Trend/`, `GPT 활용/`, `Prompting/`, `AI Safety/` folders.
-  * The final HTML runs as-is with the given engine: `addSlideWithTemplate(...)` renders via `H-QUEST/template-renderer.js` and initializes via `H-QUEST/app.js`.
-  * All file paths correctly reference the `H-QUEST/` directory for system files.
+  * The final HTML runs as-is with the given engine: `addSlideWithTemplate(...)` renders via `template-renderer.js` and initializes via `app.js`.
+  * All file paths correctly reference the system files in the same directory.
   * **NO JAVASCRIPT SYNTAX ERRORS**: The generated HTML passes Node.js syntax validation (`node -c`).
   * **All strings properly escaped**: Single quotes, newlines, and special characters handled correctly.
 
